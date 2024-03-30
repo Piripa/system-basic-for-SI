@@ -15,10 +15,9 @@ public class Gerencia {
 	private ArrayList<Perfil> perfis;
 	private KeyPair keyPair;
 	
-	public void getArrayPerfil(){
-		for(Perfil perfil : perfis) {
-			System.out.println(perfil.getLogin().toString());
-		}
+	public ArrayList<Perfil> getArrayPerfil(){
+			return perfis;
+		
 		
 	}
 	

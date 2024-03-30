@@ -52,10 +52,15 @@ public class MainSceneController {
 		if(autenticarUsuario.getTipo() == Tipo.ADMIN) {
 			escolha = tfTitle3.getText();
 			System.out.println(escolha);
-			if (escolha.equals("1") ||escolha.equals("2")) {
+			if (escolha.equalsIgnoreCase("Cadastrar")) {
 				mostrarResultado.setText("A escolha é igual a: "  + escolha);
 			}
-			mostrarResultado.setText(" Escolha incorreta ");
+			else if (escolha.equalsIgnoreCase("Listar")){
+				for (Perfil i : gerenciar.getArrayPerfil()) {
+					mostrarResultado.setText(i);
+				}
+				
+			}
 		}
 		else {
 			mostrarResultado.setText("Você não é um administrador");
@@ -88,7 +93,7 @@ public class MainSceneController {
 				admin(dadosToSing);	
 				break;
 			case USUARIO:
-				mostrarResultado.setText("Bem vindo, usuário Você irá receber a lista de usuários, participantes, que são usuários junto com você");
+				mostrarResultado.setText("Bem vindo, usuário!");
 				mostrarOpcoes.setText("Você irá receber a lista de usuários, participantes, que são usuários junto com você");
 				//mostrarResultado.setText(gerenciar.getArrayPerfil());
 				break;
@@ -111,28 +116,7 @@ public class MainSceneController {
 			byte[] signature = gerenciar.entrarDados(dadosToSing, gerenciar.getKeyPair().getPrivate());
 			if(gerenciar.verificarAssinatura(dadosToSing, signature, gerenciar.getKeyPair().getPublic())) {
 				mostrarResultado.setText("Assinatura válida.");
-				do {
-				mostrarOpcoes.setText("Você deseja 1 - cadastrar novos usuários ou 2 - listar os usuários? ");
-				switch (escolha) {
-				case "1":
-					System.out.println("Digite o nome do usuário ");
-					//String usernameInputNew = scanner.next();
-					
-					System.out.println("Digite a senha ");
-					//String passwordInputNew =  scanner.next();
-					
-					//gerenciar.adicionaUsuario(usernameInputNew, passwordInputNew, Tipo.USUARIO);
-					break;
-				case "2":
-					gerenciar.getArrayPerfil();
-				
-				default:
-					System.out.println("Obrigado por usar nossos serviços");
-				}
-				
-				}while(escolha == "1");
-				
-				
+				mostrarOpcoes.setText("Você deseja cadastrar ou  listar os usuários? ");
 			}
 			else {
 				System.out.println("Assinatura inválida");
