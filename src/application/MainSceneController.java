@@ -1,11 +1,11 @@
 package application;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class MainSceneController {
 	Gerencia gerenciar = new Gerencia();
@@ -43,8 +43,6 @@ public class MainSceneController {
 		String login = tfTitle1.getText();
 		String senha = tfTitle2.getText();
 		verificar(login,senha);
-		
-		
 	}
 	
 	@FXML
@@ -56,16 +54,24 @@ public class MainSceneController {
 				mostrarResultado.setText("A escolha é igual a: "  + escolha);
 			}
 			else if (escolha.equalsIgnoreCase("Listar")){
-				for (Perfil i : gerenciar.getArrayPerfil()) {
-					mostrarResultado.setText(i);
-				}
-				
+				concatenarListaArray();
+			}
+			else {
+				mostrarResultado.setText("Escolha errada");
 			}
 		}
 		else {
 			mostrarResultado.setText("Você não é um administrador");
 		}
     }
+
+	private void concatenarListaArray() {
+		String concatenar = "";
+		for (Perfil i : gerenciar.getArrayPerfil()) {
+			concatenar = (concatenar.concat(i.getLogin()) + " - ");
+		}
+		mostrarResultado.setText(concatenar);
+	}
 	
 	@FXML
 	void btnNewCadastroCliked(ActionEvent event) {
@@ -95,7 +101,7 @@ public class MainSceneController {
 			case USUARIO:
 				mostrarResultado.setText("Bem vindo, usuário!");
 				mostrarOpcoes.setText("Você irá receber a lista de usuários, participantes, que são usuários junto com você");
-				//mostrarResultado.setText(gerenciar.getArrayPerfil());
+				concatenarListaArray();
 				break;
 			case VISITANTE:
 				mostrarResultado.setText("Bem vindo, visitante");

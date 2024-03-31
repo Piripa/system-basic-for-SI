@@ -15,10 +15,8 @@ public class Gerencia {
 	private ArrayList<Perfil> perfis;
 	private KeyPair keyPair;
 	
-	public ArrayList<Perfil> getArrayPerfil(){
-			return perfis;
-		
-		
+	public ArrayList<Perfil> getArrayPerfil() {
+		return perfis;
 	}
 	
 	public KeyPair getKeyPair() {
