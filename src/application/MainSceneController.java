@@ -65,20 +65,17 @@ public class MainSceneController {
 		}
     }
 
-	private void concatenarListaArray() {
-		String concatenar = "";
-		for (Perfil i : gerenciar.getArrayPerfil()) {
-			concatenar = (concatenar.concat(i.getLogin()) + " - ");
-		}
-		mostrarResultado.setText(concatenar);
-	}
+	
 	
 	@FXML
 	void btnNewCadastroCliked(ActionEvent event) {
-		if(autenticarUsuario.getTipo() == Tipo.ADMIN) {
+		if(autenticarUsuario.getTipo() == Tipo.ADMIN && escolha.equalsIgnoreCase("Cadastrar")) {
 			String newUser = tfNewUser.getText();
 			String newPassword = tfNewPassword.getText();
 			gerenciar.adicionaUsuario(newUser, newPassword, Tipo.USUARIO);
+		}
+		else if(autenticarUsuario.getTipo() == Tipo.ADMIN && escolha.equalsIgnoreCase("Cadastrar")) {
+			mostrarResultado.setText("A escolha não é permitida");
 		}
 		else {
 			mostrarResultado.setText("Você não é um administrador");
@@ -114,6 +111,13 @@ public class MainSceneController {
 		}
 		
 	}
+	private void concatenarListaArray() {
+		String concatenar = "";
+		for (Perfil i : gerenciar.getArrayPerfil()) {
+			concatenar = (concatenar.concat(i.getLogin()) + " - ");
+		}
+		mostrarResultado.setText(concatenar);
+	}
 
 
 	private void admin(String dadosToSing) {
@@ -133,6 +137,7 @@ public class MainSceneController {
 			e.printStackTrace();
 		}
 	}
+	
 	
 	
 }
