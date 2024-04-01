@@ -37,6 +37,36 @@ O projeto segue uma arquitetura orientada a objetos, onde os princípios de enca
 5. O servidor verifica a autenticidade das credenciais utilizando a chave pública correspondente ao usuário.
 6. Se as credenciais forem válidas, o usuário é autenticado e tem acesso às funcionalidades correspondentes ao seu perfil.
 
+## Utilização do Projeto com JavaFX e Scene Builder
+
+Para utilizar o projeto, siga as instruções abaixo:
+
+### Pré-requisitos
+
+1. JDK (Java Development Kit) instalado em sua máquina.
+2. JavaFX SDK instalado.
+3. Scene Builder instalado.
+
+### Passos para Utilização
+
+1. Clone ou baixe o repositório do projeto em sua máquina local.
+
+2. Abra sua IDE preferida (por exemplo, IntelliJ IDEA, Eclipse) e importe o projeto.
+
+3. Certifique-se de configurar o JavaFX SDK nas configurações do projeto em sua IDE. Isso geralmente é feito definindo o caminho para o diretório do JavaFX SDK nas configurações de SDK.
+
+4. Abra o Scene Builder e importe os arquivos FXML do projeto. Você pode encontrar esses arquivos no diretório `src/main/resources` ou similar.
+
+5. Faça as alterações necessárias nas telas utilizando o Scene Builder de acordo com os requisitos do seu projeto.
+
+6. No código Java, utilize os controladores de evento para manipular a lógica da aplicação conforme necessário. Certifique-se de vincular os elementos da interface com os métodos correspondentes no controlador.
+
+7. Compile e execute o projeto. Certifique-se de configurar a execução do projeto para incluir as bibliotecas do JavaFX no classpath.
+
+8. Você pode executar o projeto através da sua IDE ou via linha de comando, dependendo das suas preferências.
+
+
+
 ## Considerações Finais
 
 O projeto oferece uma solução robusta e segura para autenticação de usuários, controle de acesso por perfil e gerenciamento de usuários. Utilizando tecnologias modernas e seguindo boas práticas de programação orientada a objetos, o sistema é capaz de atender às necessidades de segurança e funcionalidade dos usuários.
