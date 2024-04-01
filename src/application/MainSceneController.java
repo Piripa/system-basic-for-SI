@@ -11,6 +11,8 @@ public class MainSceneController {
 	Gerencia gerenciar = new Gerencia();
 	private String escolha = "";
 	private Perfil autenticarUsuario;
+
+	
     @FXML
     private Label labelOpcao;
 	
@@ -83,9 +85,6 @@ public class MainSceneController {
 	   }
 	
 	void verificar(String login, String senha) {
-		gerenciar.adicionaUsuario("admin", "admin123", Tipo.ADMIN);
-		gerenciar.adicionaUsuario("user", "user123", Tipo.USUARIO);
-		gerenciar.adicionaUsuario("visitant", "visitant123", Tipo.VISITANTE);
 		autenticarUsuario = gerenciar.autenticarPerfil(login, senha);
 		if (autenticarUsuario != null) {
 			mostrarResultado.setText("Autenticação bem sucedida! Perfil: " + autenticarUsuario.getTipo());

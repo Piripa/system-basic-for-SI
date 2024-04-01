@@ -26,6 +26,9 @@ public class Gerencia {
 	public Gerencia() {
 		this.perfis = new ArrayList<>();
 		this.keyPair = generateKeyPair();
+		adicionaUsuario("admin", "admin123", Tipo.ADMIN);
+		adicionaUsuario("user", "user123", Tipo.USUARIO);
+		adicionaUsuario("visitant", "visitant123", Tipo.VISITANTE);
 	}
 	
 	public void adicionaUsuario(String login, String password, Tipo tipo) {
